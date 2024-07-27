@@ -1,0 +1,37 @@
+
+<div id="sidebar">
+    
+    <ul>
+        <li><a [routerLink]="['/Shoes']">Shoes</a></li>
+
+        <li><a [routerLink]="['/Jackets']">Jackets</a></li>
+        <li><a [routerLink]="['/Hoodies']">Hoodies</a></li>
+        <li><a [routerLink]="['/Trousers & Tights']">Trousers & Tights</a></li>
+        <li><a [routerLink]="['/Shorts']">Shorts</a></li>
+        <li><a [routerLink]="['/Tops & T-Shirts']">Tops & T-Shirts</a></li>
+        <li><a [routerLink]="['/Tracksuits']">Tracksuits</a></li>
+        <li><a [routerLink]="['/Accessories']">Accessories</a></li>
+    </ul>
+    
+    <div *ngFor="let item of sidebaritems">
+        <hr>
+        <span>{{ item.nome }}</span>
+        <i (click)="toggleOptions(item)" class="arrow-icon" [ngClass]="{ 'rotate': item.showOption }">↓</i>
+        <ul *ngIf="item.showOption" [ngClass]="{ 'hide': !item.showOption }">
+          <li  *ngFor="let option of item.option">
+            <input type="checkbox" (change)="toggleSelection(option)" [checked]="selezioni[option]">
+            <span (click)="toggleSelection(option)"> {{ option }}</span>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+
+    
+
+
+      
+
+
+    
+    

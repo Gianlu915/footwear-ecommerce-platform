@@ -1,0 +1,351 @@
+#main{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+#BoxSx {
+    display: flex;
+}
+
+.small-images{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    
+}
+
+
+
+
+.small-images img {
+        max-width: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+}
+
+.small-images img:hover{
+    border: black solid;
+}
+
+.small-images video{
+   max-width: 50px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+
+ 
+.small-images video:hover{
+   border: black solid;
+}
+
+.big-image{
+    margin-left: 5px;
+ 
+}
+
+.big-image img{
+    max-width: 500px;
+    border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.big-image img:hover{
+   border: black solid;
+    
+}
+
+
+
+#BoxSx, #BoxCn, #BoxDx {
+    flex: 1; /* Each box takes up equal space */
+}
+
+#descrizione{
+    margin-left: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+
+
+#shoes{
+    width: 100%;
+    display: flex;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+#shoes img{
+    width: 80px;
+   padding: 2px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+#shoes img:hover{
+  border: black solid;
+}
+
+
+
+#scelta{
+    width: 100%;
+    display: flex;
+    margin-left: 30px;
+    justify-content: space-between;
+   
+}
+
+#size{
+    margin-right: 30px;
+}
+
+#guida{
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+#taglie{
+    display: flex;
+    width: 90%;
+    margin-left: 30px;
+    border-radius: 5px;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+ li{
+    list-style-type: none;
+    text-align: center;
+    width: calc(100%/3 - 4px);
+    border: 1px solid #ccc;
+    padding:10px;
+    margin: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  #aggiungi{
+    width: 91%;
+    margin-left: 30px;
+    margin-top: 10px;
+    border: solid rgb(210, 210, 210) 1px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
+
+  #preferiti{
+    width: 91%;
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .selected{
+    background-color: rgb(243, 239, 239);
+  }
+
+  ul > li:hover{
+    border: black 1px solid;
+  }
+
+  ul>li:active{
+    border-color: 3px solid red;
+  }
+
+  #selectSize {
+    margin-left: 30px;
+  }
+
+  /* cart*/
+
+  #cart{
+    width: 400px;
+    height: 300px;
+    border: 2px solid;
+    position: fixed;
+    top: 140px;
+    right: 50px;
+    background-color: white;
+    z-index: 99;
+  }
+
+  #part1{
+    display: flex;
+    justify-content: space-between;
+  }
+
+ 
+
+#cart .left-content, .right-content{
+    display: flex;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#cart .left-content{
+    width: 95%;
+}
+
+#cart .right-content{
+    width: 5%;
+    cursor: pointer;
+}
+
+#cart div img{
+    width: 20px;
+    height: 20px;
+}
+
+  #scarpa{
+    display: flex;
+  }
+
+  #part2{
+    display: flex;
+  }
+
+  #part2 div{
+    width:100%;
+    height: 100%; 
+  }
+
+  #part2 div img{
+    width: 70%;
+    height: 80%;
+    margin-left: 10px;
+  }
+
+  #part3{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  #part3 button{
+    width: 100%;
+    height: 50px;
+    border: 2px solid;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 4px;
+  }
+
+
+   .is-fading {
+    pointer-events: none;
+    cursor: none;
+  }
+
+  .description{
+    display: flex;
+    flex-direction: column;
+   gap: 10px
+   ;
+  }
+
+
+  
+
+
+  /* cart*/
+
+  /* Media query per cellulari */
+
+  @media (max-width:500px) {
+     
+   #main{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+   }
+    
+
+    #boxCn{
+        display: none;
+    }
+
+    #descrizione{
+        display: none;
+    }
+
+    #scelta{
+       margin-top: 30px;
+       
+    }
+
+    #size{
+       margin-left: 22px;
+    }
+
+    #guida{
+        margin-right: 25px;
+    }
+
+    #taglie ul{
+   margin-left: 15px;
+    }
+
+    #shoes{
+        display: none;
+    }
+ 
+    .small-images .prima {
+            width: 100%;
+            max-width: none;
+    }
+
+
+    .small-images{
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 3px;
+        
+    }
+
+    .small-images img{
+        width: 300px;
+    }
+
+    #aggiungi{
+        width: 465px;
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+
+    #preferiti{
+        width: 465px;
+        margin-left: 15px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    #guida{
+      margin-right: 75px;
+    }
+
+    
+
+  }

@@ -1,0 +1,47 @@
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 190px;
+    margin-right: 40px;
+  position: sticky;
+  top: 10px; /* Fissa la sidebar all'inizio del contenitore principale */
+  height: 100vh; /*Altezza massima pari all'altezza della finestra*/
+
+}
+
+h3{
+    font-weight: bold;
+}
+
+#nome{
+    font-weight: bold;
+}
+
+li{
+    margin-left: -30px;
+    list-style-type: none;
+}
+
+#sidebar a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+#sidebar div{
+    width: 100%;
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}
+.arrow-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .rotate {
+    transform: rotate(180deg);
+  }

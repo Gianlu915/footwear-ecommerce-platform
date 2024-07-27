@@ -1,0 +1,308 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#first {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(244, 239, 239);
+}
+
+#first div {
+   width: 40px;
+   margin-left: 20px;
+}
+
+#first img{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#first ul{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+#first ul li{
+    display: flex;   
+    gap: 20px;
+    text-decoration: none;
+    font-size: small;
+}
+
+#first > ul li:not(:last-child)::after {
+    content: "|";
+    margin-right: 20px;
+}  
+
+#first > li:not(:last-child) {
+    margin-right: 20px;
+}
+
+#second {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(248, 248, 248);
+    padding: 15px;
+
+
+}
+
+#second nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    list-style-type: none;
+    margin-left: 190px;
+    position: relative;
+}
+
+#menu-secondo{
+display: flex;
+justify-content: center;
+position: absolute;
+z-index: 99;
+background-color: rgb(255, 255, 255);
+width: 100%;
+height: 350px;
+top: 16%;
+left: 0;
+max-height: 0; 
+overflow: hidden;
+transition: 0.8s ease;
+}
+
+#menu-secondo div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#menu-secondo div li{
+padding: 5px;
+list-style-type: none;
+margin-right: 30px;
+text-align: center;
+}
+
+#menu-secondo div li a{
+    color: gray;
+}
+
+#menu-secondo div li a:hover{
+color: black;
+}
+
+h6{
+    text-align: center;
+}
+
+
+#nav-principale:hover + #menu-secondo{
+    display: flex;
+    max-height: 300px;
+}
+
+#menu-secondo:hover{
+    display: flex;
+    max-height: 300px;
+}
+
+nav{
+    height: 60px;
+}
+
+
+#part{
+    display: flex;
+    align-items: center;
+}
+
+#logoNike {
+    width: 50px;
+    margin-left: 10px;
+}
+
+
+
+#logoCart{
+    display: flex;
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#logoCart img{
+    width: 100%;
+}
+
+#logoFav {
+    display: flex;
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#logoFav img{
+    width: 100%;
+
+}
+
+
+#search{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#sec{
+    display: flex;
+}
+
+
+input {
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+#third {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgb(244, 239, 239);;
+    padding: 10px;
+}
+
+#third span {
+    padding: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+#third a{
+    text-decoration: underline;
+    color: rgb(0, 0, 0);
+}
+
+
+
+.cart-count {
+    position: absolute;
+    top: -0.5px;  /* Posiziona il badge nella posizione desiderata */
+    right: -2px; /* Posiziona il badge nella posizione desiderata */
+    color: rgb(21, 21, 21);
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .cart-container{
+    position: relative;
+    display: inline-block;
+  }
+
+  .shop{
+    display: none;
+  }
+
+
+
+/* Media query per Cellulari */
+
+@media screen and (max-width: 500px) {
+   
+    #first{
+        display: none;
+    }
+
+    #header{
+        max-width: 100%;
+    }
+
+    .shop{
+        display: block;
+        cursor: pointer;
+        
+    }
+
+    #menu-secondo{
+        top: 10%;
+        left: 0;
+       line-height: 20px;
+    }
+
+    #search {
+        margin-left: 100px;
+    }
+
+    input{
+        margin-right: 60px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+   #part{
+    display: none;
+   }
+
+
+   #first{
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 800px) {
+    .men{
+        display: none;
+  
+    }
+
+    .shop{
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    .women {
+        display: none;
+      }
+}
+
+@media screen and (max-width: 900px) {
+    .kids {
+        display: none;
+      }
+}
+
+@media screen and (max-width: 950px) {
+    .outlet {
+        display: none;
+      }
+}

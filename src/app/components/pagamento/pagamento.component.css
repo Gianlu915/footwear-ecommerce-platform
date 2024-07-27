@@ -1,0 +1,82 @@
+#main{
+    max-width: 900px;
+    margin: 30px auto 0;
+    display: flex;
+
+}
+
+.container-left{
+    width: 50%;
+    margin-right: 30px;
+}
+
+.container-right{
+   width: 50%;
+}
+
+.totale{
+    width: 100%;
+}
+
+input{
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    outline: none;
+}
+
+div button{
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: gray 1px solid;
+}
+
+#credit{
+    padding: 20px;
+    background-color: rgb(255, 252, 252);
+}
+
+#credit:hover,#credit:focus{
+    border: 2px solid black;
+}
+
+
+
+
+div button img{
+    width: 40px;
+}
+
+.fade{
+    opacity: 0.6;
+}
+
+#enter-details{
+    margin: 30px 0;
+}
+
+#dettaglio{
+    width: 100%;
+    max-height: 150px;
+  }
+
+  .small-image{
+    width: 100px;
+  }
+
+  #totale{
+    display: flex;
+  }
+
+  .no-border{
+    border: none;
+ 
+  }
+
+  .right{
+    margin-left: 10px;
+  }

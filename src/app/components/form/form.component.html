@@ -1,0 +1,167 @@
+<div id="main">
+
+<div id="container-left">
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <h4>Enter your name and address:</h4>
+    </div>
+
+
+    <div>
+      <input id="name" formControlName="name" placeholder="First Name" aria-label="First Name" maxlength="30" [ngStyle]="{'border-color': myForm.get('name')?.touched && myForm.get('name')?.invalid ? 'red' : ''}">
+      <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+        <span [ngStyle]="{'color': 'red'}">Enter your name</span>
+      </div>
+    </div>
+  
+    <div>
+      <input id="surname" formControlName="surname" placeholder="Surname" aria-label="Surname" maxlength="30" [ngStyle]="{'border-color': myForm.get('surname')?.touched && myForm.get('surname')?.invalid ? 'red' : ''}">
+      <div *ngIf="myForm.get('surname')?.invalid && myForm.get('surname')?.touched">
+        <span [ngStyle]="{'color': 'red'}">Enter your surname</span>
+      </div>
+    </div>
+  
+    <div>
+      <input id="address" type="address" formControlName="address" placeholder="Address" aria-label="address" maxlength="40" [ngStyle]="{'border-color': myForm.get('address')?.touched && myForm.get('address')?.invalid ? 'red': ''}">
+      <div *ngIf="myForm.get('address')?.invalid && myForm.get('address')?.touched">
+        <span [ngStyle]="{'color': 'red'}">Insert your address</span>
+      </div>
+    </div>
+
+    <div>
+        <input id="postalCode" formControlName="postalCode" placeholder="Postal Code" aria-label="postal Code" maxlength="4" [ngStyle]="{'border-color': myForm.get('postalCode')?.dirty && myForm.get('postalCode')?.invalid ? 'red': '' || myForm.get('postalCode')?.touched && myForm.get('postalCode')?.invalid ?'red': '' }">
+        <div *ngIf="myForm.get('postalCode')?.touched && !myForm.get('postalCode')?.value && myForm.get('postalCode')?.errors?.['pattern'] || myForm.get('postalCode')?.touched && myForm.get('postalCode')?.value == ''   ">
+          <span [ngStyle]="{'color': 'red'}">Enter your Postal Code</span>
+        </div>
+        <div *ngIf="!myForm.get('postalCode')?.errors?.['required'] && myForm.get('postalCode')?.errors?.['pattern']">
+            <span [ngStyle]="{'color': 'red'}">Your Postal Code is incorrect</span>
+          </div>
+      </div>
+
+      <div>
+        <select id="stateTerritory" formControlName="stateTerritory">
+          <option value="" disabled>Select your State</option>
+          <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+        </select>
+        <div *ngIf="myForm.get('stateTerritory')?.invalid && myForm.get('stateTerritory')?.touched">
+          <div *ngIf="myForm.get('stateTerritory')?.errors?.['required']">
+            State is required
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <input [ngStyle]="{'border-color': myForm.get('locality')?.dirty && myForm.get('locality')?.invalid ? 'red': '' || myForm.get('locality')?.touched && myForm.get('locality')?.invalid ? 'red': '' ? 'red': '' }" id="locality" formControlName="locality" placeholder="Locality" maxlength="20" aria-label="locality">
+        <div *ngIf="myForm.get('locality')?.touched && !myForm.get('locality')?.value">
+          <span [ngStyle]="{'color': 'red'}">Enter a Locality</span>
+        </div>
+        <div *ngIf="!myForm.get('locality')?.errors?.['required'] && myForm.get('locality')?.errors?.['pattern']">
+          <span [ngStyle]="{'color': 'red'}">Your Locality is incorrect</span>
+        </div>
+      </div>
+
+      <div>
+        <input id="country" value="United States" readonly aria-label="country">
+      </div>
+
+
+      <div>
+        <h4>What's yor contact information?</h4>
+      </div>
+
+      <div>
+    <input [ngStyle]="{'border-color': (myForm.get('email')?.touched && myForm.get('email')?.invalid && myForm.get('email')?.errors?.['email']) || (myForm.get('email')?.touched && myForm.get('email')?.errors?.['required']) ? 'red' : ''}" id="email" formControlName="email" placeholder="Email" maxlength="30" aria-label="email">
+
+
+        <div *ngIf="myForm.get('email')?.touched && myForm.get('email')?.errors?.['required']">
+            <span [ngStyle]="{'color': myForm.get('email')?.touched && myForm.get('email')?.errors?.['required'] ? 'red' : 'black'}" id="email" formControlName="email" placeholder="Email" aria-label="email">Insert your email address</span>
+        </div>
+
+        <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.errors?.['email']">
+            <span [ngStyle]="{'color': myForm.get('email')?.invalid && myForm.get('email')?.errors?.['email'] ? 'red' : 'black'}" id="email" formControlName="email" placeholder="Email" aria-label="email">Please enter a valid email address</span>
+        </div>
+    </div>
+
+    <div>
+      <input id="phone" formControlName="phone" placeholder="Phone number" aria-label="phone" maxlength="15" [ngStyle]="{'border-color': myForm.get('phone')?.dirty && myForm.get('phone')?.invalid ? 'red': '' || myForm.get('phone')?.touched && myForm.get('phone')?.invalid ?'red': '' }">
+      <div *ngIf="myForm.get('phone')?.touched && !myForm.get('phone')?.value && myForm.get('phone')?.errors?.['pattern'] || myForm.get('phone')?.touched && myForm.get('phone')?.value == ''    ">
+        <span [ngStyle]="{'color': 'red'}">Enter your Phone number</span>
+      </div>
+      <div *ngIf="!myForm.get('phone')?.errors?.['required'] && myForm.get('phone')?.errors?.['pattern']">
+          <span [ngStyle]="{'color': 'red'}">Your Phone number is incorrect</span>
+        </div>
+    </div>
+
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="myCheckbox" formControlName="myCheckbox">
+        <label for="myCheckbox">I have read and consent to eShopWorld processing my information in accordance with the <a href="https://esw.com/privacy-policy/" target="_blank">Privacy Statement</a> and <a href="https://www.eshopworld.com/cookie-policy/" target="_blank">Cookie Policy.</a> eShop is a trusted partner.</label>
+      </div>
+
+
+      <button type="submit" [disabled]="myForm.invalid">Continue</button>
+
+      <hr>
+
+      <h5>Delivery</h5>
+
+      <hr>
+
+      <h5 class="fade">Shipping</h5>
+
+      <hr>
+
+      <h5 class="fade">Billing</h5>
+
+      <hr>
+
+      <h5 class="fade">Payment</h5>
+
+
+  </form>
+</div><!--container-left-->
+
+
+<div id="container-right">
+    <div class="col-md-4 custom-col-right no-border">
+        <h5 id="summary">Summary </h5>
+        <div class="card smallCard no-border">
+          <div class="card-body">
+            <p>Subtotal {{subtotal | currency}}</p>
+            <p>Estimated Delivery & handling: {{ estimatedDeliveryLabel()}} </p><hr>
+            <p class="card-text">Total: {{totale | currency}}</p> <hr>
+
+            
+              <div id="dettaglio"  *ngIf="scarpeNelCarrello.length > 0">
+                <div id="totale" *ngFor="let scarpa of scarpeNelCarrello">
+                  <div class="left"><img class="card-img-top small-image" src="{{scarpa.immagine}}" alt="Card image cap">
+                  </div>
+
+                  <div class="right">
+                  <h6 >{{scarpa.nome}}</h6>
+                  <p >Price: {{scarpa.prezzo | currency}}</p>
+                  <p>Quantity: {{scarpa.quantita}}</p>
+                  <p>Color: {{scarpa.colore}}</p>
+                </div>
+                </div>
+              </div>
+            
+            
+            
+        </div>
+      </div>
+
+     
+</div>
+
+
+
+</div>
+</div><!--Main-->
+
+<app-footer></app-footer>
+
+
+

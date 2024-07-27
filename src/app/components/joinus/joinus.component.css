@@ -1,0 +1,49 @@
+#main{
+    max-width: 900px;
+    margin: 30px auto 0;
+    display: flex;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.sign{
+    display: flex;
+    margin-bottom: 20px;
+   
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    outline: none;
+}
+
+button{
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 30px;
+    outline: none;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+}
+
+button:hover{
+   opacity: 0.6;
+}
+
+p a{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+

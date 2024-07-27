@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 custom-col-left">
+      <h5>Bag</h5>
+      <p *ngIf="scarpeNelCarrello.length === 0">There are no items in your bag.</p>
+      <div *ngFor="let scarpa of scarpeNelCarrello; let i = index" class="mb-3 smallCard">
+        <div class="card no-Border">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img [src]="scarpa.immagine" class="img-fluid rounded-start" alt="{{scarpa.nome}}">
+            </div>
+            <div class="col-md-8">
+
+              <div id="princ" class="card-body no-margins">
+                <h5 class="card-title">{{scarpa.nome}}</h5>
+                <span>Size: {{scarpa.taglia}}</span>
+                <span>Quantity: <input [(ngModel)]="scarpa.quantita"
+                  [ngModelOptions]="{standalone:true}"
+                  (input)="aggiornaQuantita(i, $event)" min="1" max="10" value="1" type="number" name="" ></span>
+                <span>Price: {{scarpa.prezzo | currency}}</span>
+                <span>Color: {{scarpa.colore}}</span>
+                <div id="divDesc"><div id="div1" (click)="rimuoviDalCarrello(i)"><img src="../../../assets/immagini/bin.png" alt=""></div>
+                <div id="div2"><img src="../../../assets/immagini/favorite.png" alt=""></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav" [style.margin-top.px]="scarpeNelCarrello.length > 0 ? 40 : 260">
+        <h4>Favourites </h4>
+            
+        <p> Want to view your favourites? <a [routerLink]="['/joinus']">Join us</a> or <a [routerLink]="['/joinus']">Sign in</a></p>
+       </div>
+    </div>
+    
+    
+    <div class="col-md-4 custom-col-right">
+      <h5 id="summary">Summary </h5>
+      <div class="card smallCard no-Border">
+        <div class="card-body">
+          <p>Subtotal: {{subtotal | currency}} </p>
+          <p>Estimated Delivery & handling: {{estimatedDeliveryLabel()}}</p> <hr>
+          <p class="card-text">Total: {{totale | currency}}</p>
+          <button [routerLink]="['/form']" [disabled]="scarpeNelCarrello.length === 0">Guest Checkout</button>
+          <button [disabled]="scarpeNelCarrello.length === 0">Member Checkout</button>
+          <a href="https://www.paypal.com/checkoutnow?token=YOUR_PAYPAL_TOKEN"><button [disabled]="scarpeNelCarrello.length === 0"  id="payPal"><span class="pay">Pay</span>
+          <span class="pal">Pal</span>
+          </button>
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,87 @@
+#princ{
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+    ;
+}
+
+#divDesc{
+    display: flex;
+    margin-top: 20px;
+}
+
+#divDesc img{
+    width: 25px;
+}
+
+#div1, #div2{
+    cursor: pointer;
+}
+
+#div1{
+    margin-right: 10px;
+}
+
+.container{
+    margin-top: 40px;
+}
+
+
+.container button{
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.container button:hover{
+    opacity: 0.8;
+}
+
+.custom-col-left p{
+    line-height: 32px;
+}
+
+.card-title{
+    margin-top: -20px;
+}
+
+.fav{
+    margin-top: 150px;
+}
+
+
+
+.smallCard{
+    max-width: 600px;
+}
+
+.no-Border{
+    border: none;
+}
+
+#summary{
+    margin-left: 10px;
+}
+
+#payPal{
+    background-color: rgb(228, 226, 226);
+    border: white;
+}
+
+.pay{
+    color: rgb(79, 79, 255);
+    font-weight: bold;
+}
+
+.pal{
+    color: rgb(34, 202, 202);
+    font-weight: bold;
+}
+
+a{
+    color: rgb(182, 163, 163);
+}
+

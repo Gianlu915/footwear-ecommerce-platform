@@ -1,0 +1,112 @@
+<div id="main" [ngClass]="{'is-fading': isFading}" [ngStyle]="{'opacity': isFading ? '0.2' : '1'}">
+    <div id="boxSx">
+        <div class="small-images">
+            <img (mouseover)="changeMainImage('../../../assets/immagini/1.jpg')" class="prima" src="../../../assets/immagini/1.jpg" alt="">
+            <img (mouseover)="changeMainImage('../../../assets/immagini/2.jpg')" src="../../../assets/immagini/2.jpg" alt="">
+            <img (mouseover)="changeMainImage('../../../assets/immagini/3.jpg')" src="../../../assets/immagini/3.jpg" alt="">
+            <img (mouseover)="changeMainImage(scarpa?.immagine!)" [src]="scarpa?.immagine" alt="">
+            <img (mouseover)="changeMainImage('../../../assets/immagini/5.jpg')" src="../../../assets/immagini/5.jpg" alt="">
+            <img (mouseover)="changeMainImage('../../../assets/immagini/6.jpg')" src="../../../assets/immagini/6.jpg" alt="">
+            <img (mouseover)="changeMainImage('../../../assets/immagini/7.jpg')" src="../../../assets/immagini/7.jpg" alt="">
+            <img (mouseover)="changeMainImage('../../../assets/immagini/8.jpg')" src="../../../assets/immagini/8.jpg" alt="">
+            <img (mouseover)="changeMainImage('../../../assets/immagini/9.jpg')" src="../../../assets/immagini/9.jpg"  alt="">
+            <div class="video" (mouseover)="changeMainImage('../../../assets/immagini/video.mp4')">
+            </div>
+
+        
+        </div>
+
+    </div>
+
+    <div id="boxCn" class="big-image">
+        <div><img [src]="mainImage" alt="{{scarpa?.nome}}"></div>
+    </div>
+
+    <div id="boxDx">
+        <div id="descrizione">
+            <h3>{{scarpa?.nome}}</h3>
+            <p>{{scarpa?.prezzo | currency}}</p>
+        </div>
+
+        <div id="shoes">
+              <div>
+                <img src="../../../assets/immagini/scarpa_1.jpg" alt="">
+              </div>
+
+              <div>
+                <img src="../../../assets/immagini/scarpa_2.jpg" alt="">
+              </div>
+              
+              <div>
+                <img src="../../../assets/immagini/scarpa_3.jpg" alt="">
+              </div>
+
+        </div>
+
+        <div id="scelta">
+
+        
+        <div id="size">
+            <h5 [ngStyle]="{'color':showErrorBorder && !selectedSize ? 'red' : 'initial'}">Select Size</h5>
+        </div>
+
+        <div id="guida">
+            <h5>Select Guide</h5>
+        </div>
+
+        </div>
+
+        <div id="taglie" [ngStyle]="{'border': showErrorBorder && !selectedSize ? '2px solid red' : 'initial'}">
+            <ul>
+                <li *ngFor="let taglia of scarpa?.taglie_disponibili" [class.selected]="selectedSize === taglia" (click)="SizeClick(taglia)">{{ taglia }}</li>
+            </ul>
+            <span id="selectSize" [ngStyle]="{'color': showSelectSize ? 'red' : 'initial', 'display': showSelectSize ? 'inline' : 'none'}">Please Select size</span>
+        </div>
+
+           <button (click)="buttonClick()" id="aggiungi">Aggiungi al carrello</button>
+           <button id="preferiti" type="button">Preferiti</button>
+    </div>
+
+    </div>
+
+
+
+<!--Add cart-->
+
+<div id="cart" [ngStyle]="{ 'transition': 'opacity 1s', 'opacity': (showCart && isFading) ? '1' : '0'  }">
+    <div id="part1">
+    <div class="left-content">
+        <img src="../../../assets/immagini/check.png" alt="">
+        <span>Added to bag</span>
+    </div>
+    <div (click)="closeCartclick()" class="right-content" [ngStyle]="{'display': closeCart ? 'none' : 'block'}">
+        <img src="../../../assets/immagini/close.png" alt="">
+    </div>
+
+    </div>
+
+    <div id="part2">
+
+    
+        <div class="shoe-image-container">
+            <img [src]="scarpa?.immagine" alt="Scarpe">
+        </div>
+        <div class="description">
+           <span>{{scarpa?.nome}}</span>
+           <span>Size Us {{selectedSize}}</span>
+           <span>{{scarpa?.prezzo | currency}}</span>
+        </div>
+    
+</div>
+
+<div id="part3">
+<button [routerLink]="['/carrello']">View bag ({{totBag}})</button>
+<button>Checkout</button>
+</div>
+</div> <!--end cart-->
+
+<app-footer></app-footer>
+
+
+
+

@@ -1,0 +1,44 @@
+
+
+#main {
+    background-color: #fff;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fffdfd;
+}
+
+.menu-item {
+    position: relative;
+    cursor: pointer;
+}
+
+
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 190%;
+    left: 0;
+    color: rgb(191, 190, 190);
+    min-width: 200px;
+
+}
+
+.submenu li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.submenu li:hover{
+color: black;
+}

@@ -1,0 +1,21 @@
+<div id="main">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <div class="card-wrapper">
+        <div class="card" *ngFor="let scarpa of scarpe" (click)="selezionaScarpa(scarpa.id)">
+            <a [routerLink]="['/dettaglio-scarpa', scarpa.id]">
+                <img [src]="scarpa.immagine" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+                <p id="nome" class="card-text">{{scarpa.nome}}</p>
+                <p class="card-text">{{scarpa.prezzo | currency}}</p>
+            </div>
+        </div>
+        <!-- Spacer element added conditionally -->
+        <div class="spacer" *ngIf="scarpe.length % 3 === 1"></div>
+        <div class="spacer" *ngIf="scarpe.length % 3 === 1"></div>
+        <div class="spacer" *ngIf="scarpe.length % 3 === 2"></div>
+        
+    </div>
+</div>
+
+<app-footer></app-footer>

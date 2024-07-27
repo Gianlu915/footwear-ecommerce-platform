@@ -1,0 +1,161 @@
+<div id="main">
+
+<div class="container-left">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <h4>Have a promo code?</h4>
+    </div>
+
+    <div>
+        <input id="promo" aria-label="promo" placeholder="Promo">
+      </div>
+
+
+      <div>
+        <h4>How would you like to pay?</h4>
+    </div>
+
+    <div>
+        <button id="credit">Credit or Debit card</button>
+      </div>
+
+      <div>
+        <button disabled class="pagamento">
+            <img src="../../../assets/immagini/apple-pay.png" alt="">
+            </button>
+          </div>
+
+          <div>
+            <button disabled  class="pagamento">
+                <img src="../../../assets/immagini/paypal.png" alt="">
+                </button>
+              </div>
+    
+
+      <div>
+        <button disabled  class="pagamento">
+            <img src="../../../assets/immagini/google-pay.png" alt="">
+            </button>
+          </div>
+
+     
+
+      <div id="enter-details">
+        <h4>Enter your payment details:</h4>
+      </div>
+
+      <div>
+        <input [ngStyle]="{'border-color': (myForm.get('nameCard')?.touched && myForm.get('nameCard')?.invalid && myForm.get('nameCard')?.errors?.['nameCard']) || (myForm.get('nameCard')?.touched && myForm.get('nameCard')?.errors?.['required']) ? 'red' : ''}" id="nameCard" formControlName="nameCard" placeholder="Name on card" aria-label="Name on card">
+        <div *ngIf="myForm.get('nameCard')?.invalid && myForm.get('nameCard')?.touched" [ngStyle]="{'color': 'red'}">
+          Enter your name
+        </div>
+      </div>
+
+      <div>
+        <input [ngStyle]="{'border-color': (myForm.get('cardNumber')?.touched && myForm.get('cardNumber')?.invalid) || (myForm.get('cardNumber')?.value) && (myForm.get('cardNumber')?.invalid) ? 'red': ''} || !myForm.get('cardNumber')?.errors?.['required'] && myForm.get('cardNumber')?.errors?.['pattern'] " id="cardNumber" formControlName="cardNumber" placeholder="Card Number" maxlength="16" aria-label="cardNumber">
+    
+    
+            <div *ngIf="myForm.get('cardNumber')?.touched && myForm.get('cardNumber')?.errors?.['required']">
+                <span [ngStyle]="{'color': myForm.get('cardNumber')?.touched && myForm.get('cardNumber')?.errors?.['required'] ? 'red' : 'black'}" id="cardNumber" formControlName="cardNumber" aria-label="cardNumber">
+                  Enter your card number</span>
+            </div>
+    
+            <div *ngIf="!myForm.get('cardNumber')?.errors?.['required'] && myForm.get('cardNumber')?.errors?.['pattern']">
+                <span [ngStyle]="{'color': 'red'}"  id="cardNumber" formControlName="cardNumber" aria-label="cardNumber">
+                  Please enter a valid Card number</span>
+            </div>
+        </div>
+
+      <div> <!--mmYY-->
+        <input [ngStyle]="{'border-color': (myForm.get('mmYY')?.touched && myForm.get('mmYY')?.invalid) || (myForm.get('mmYY')?.value) && (myForm.get('mmYY')?.invalid) ? 'red': ''} || !myForm.get('mmYY')?.errors?.['required'] && myForm.get('mmYY')?.errors?.['pattern'] " id="mmYY" formControlName="mmYY" placeholder="MM/YY" maxlength="5" aria-label="mm/YY">
+
+        <div *ngIf="myForm.get('mmYY')?.touched && myForm.get('mmYY')?.errors?.['required']">
+          <span [ngStyle]="{'color': myForm.get('mmYY')?.invalid && myForm.get('mmYY')?.errors?.['required'] ? 'red' : 'black'}" id="mmYY" formControlName="mmYY" aria-label="mmYY">
+            Enter the Expired date</span>
+        </div>
+        <div *ngIf="!myForm.get('mmYY')?.errors?.['required'] && myForm.get('mmYY')?.errors?.['pattern']">
+          <span [ngStyle]="{'color': 'red'}">Your expired date is incorrect</span>
+        </div>
+
+       
+      </div><!--mmYY-->
+
+      <div>
+        <input id="cvv" formControlName="cvv" placeholder="cvv" aria-label="cvv" maxlength="4" [ngStyle]="{'border-color': (myForm.get('cvv')?.touched && myForm.get('cvv')?.invalid) || (myForm.get('cvv')?.value) && (myForm.get('cvv')?.invalid) ? 'red': ''} || !myForm.get('cvv')?.errors?.['required'] && myForm.get('cvv')?.errors?.['pattern'] " >
+        <div *ngIf="myForm.get('cvv')?.touched && !myForm.get('cvv')?.value">
+          <span [ngStyle]="{'color': 'red'}">Enter your Cvv</span>
+        </div>
+        <div *ngIf="!myForm.get('cvv')?.errors?.['required'] && myForm.get('cvv')?.errors?.['pattern']">
+            <span [ngStyle]="{'color': 'red'}">Your Cvv Code is incorrect</span>
+          </div>
+      </div>
+
+      <div>
+       <p>By clicking place order, you agree to ESW <a href="https://agreementservice.svs.nike.com/rest/agreement?requestType=redirect&agreementType=termsOfSale&country=PH&language=en&uxId=com.nike.tos" target="_blank">Terms and conditions.</a> </p>
+      </div>
+
+
+      <button type="submit" [disabled]="myForm.invalid">Place order</button>
+
+      <hr>
+
+      <h5>Payment</h5>
+
+      <hr>
+
+      <h5 class="fade">Shipping</h5>
+
+      <hr>
+
+      <h5 class="fade">Billing</h5>
+
+      <hr>
+
+      <h5 class="fade">Delivery</h5>
+
+
+  </form>
+</div>
+
+
+<div class="container-right">
+    <div class="col-md-4 custom-col-right totale">
+        <h5 id="summary">Summary </h5>
+        <div class="card smallCard no-border">
+          <div class="card-body">
+            <p>Subtotal: {{subtotal}}</p>
+            <p>Estimated Delivery & handling: {{estimatedDeliveryLabel()}}  </p>
+            <p class="card-text">Total products: {{scarpeNelCarrello.length}}</p><hr>
+            <p class="card-text">Total: {{totale}}</p> <hr>
+
+            
+              <div id="dettaglio"  *ngIf="scarpeNelCarrello.length > 0">
+                <div id="totale" *ngFor="let scarpa of scarpeNelCarrello">
+                  <div class="left"><img class="card-img-top small-image" src="{{scarpa.immagine}}" alt="Card image cap">
+                  </div>
+
+                  <div class="right">
+                  <h6 >{{scarpa.nome}}</h6>
+                  <p >Price: {{scarpa.prezzo | currency}}</p>
+                  <p>Quantity: {{scarpa.quantita}}</p>
+                  <p>Color: {{scarpa.colore}}</p>
+                </div>
+                </div>
+              </div>
+            
+            
+            
+        </div>
+      </div>
+
+     
+</div>
+
+
+
+</div>
+
+</div><!--main-->
+
+<app-footer></app-footer>

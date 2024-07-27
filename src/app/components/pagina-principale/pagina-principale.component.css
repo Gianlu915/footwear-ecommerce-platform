@@ -1,0 +1,181 @@
+
+    
+
+.carousal-container{
+    width: 100%;
+    max-height: 700px;
+}
+
+.carousal-container img{
+    height: 600px;
+}
+
+h5{
+margin-top: 50px;
+margin-bottom: 20px;
+}
+
+/*Trend della settimana*/
+
+#carouselExampleControls2 .card{
+    width: 100%;
+    margin-right: 10px;
+    background-color: rgb(232, 232, 232);
+}
+
+#carouselExampleControls2 .card img{
+    width: auto;
+    height: auto;
+    object-position: center;
+    cursor: pointer;
+}
+
+.btn{
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-color:rgb(180, 180, 172);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    width: 50%;
+}
+
+.btn:hover{
+    background-color: rgb(218, 218, 218);
+}
+
+
+
+#carouselExample .card img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.cards-wrapper{
+    display: flex;
+    margin-top: 10px;
+   
+}
+
+
+
+/* Sport*/
+#carouselExample2 .card {
+    position: relative;
+    width: 100%;
+    margin-right: 10px;
+}
+
+
+#carouselExample2 .card img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   cursor: pointer;
+}
+
+#carouselExample2 .card button{
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    width: 30%;
+ }
+
+ #carouselExample2 .card button:hover{
+    background-color: rgb(218, 218, 218);
+ }
+
+
+ /*Membership*/
+
+ #carousal3{
+    display: flex;
+
+    justify-content: space-between;
+    max-width: 1400px;
+ }
+
+ #carousal3 div{
+    position:relative;
+    margin-right: 10px;
+    width: calc(100%);
+    height: 60%;
+ }
+
+ #carousal3 div img{
+   
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+     }
+ 
+
+ #carousal3 div button{
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    width: 30%;
+    margin-bottom: 10px;
+ }
+
+ #carousal3 div button:hover{
+    background-color: rgb(218, 218, 218);
+ }
+
+ 
+
+
+ /* Media query per dispositivi mobili */
+@media (max-width: 500px) {
+
+    .carousal-container{
+        display: none;
+    }
+
+    .card2{
+        display: none;
+    }
+
+    .card3{
+        display: none;
+    }
+    .carousel-inner img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .cards-wrapper {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .card {
+        flex: 0 0 100%;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    
+
+
+}
+ 
+
+
